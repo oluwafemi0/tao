@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 
-export default function CardTile({ navigation,item }) {
+export default function DetailTile({ navigation,item }) {
   return (
     <View>
       <View
