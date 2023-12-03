@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator, StyleSheet } from "react-native";
+import { View, Text, ActivityIndicator, StyleSheet,Image } from "react-native";
 import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import CardTile from "../components/CardTile";
@@ -48,7 +48,20 @@ export default function DetailsScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text>DetailsScreen</Text>
+    <Image
+      source={{
+        uri: detailsData?.poster_path,
+      }}
+      resizeMode='stretch'
+      style={{
+        borderRadius: 4,
+        width: '100%',
+        height: "50%",
+      }}
+    />
+    
+      <Text>Title: {detailsData?.title}</Text>
+      <Text>Title: {detailsData?.overview}</Text>
       <StatusBar style="light" />
     </View>
   );
@@ -59,6 +72,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "red",
+    backgroundColor: "#fff",
   },
 });
