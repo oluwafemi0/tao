@@ -8,6 +8,7 @@ import {
 import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import CardTile from "../components/CardTile";
+import Search from "../components/Search";
 
 export default function HomeScreen({ navigation }) {
   const [movieList, setMovieList] = useState([]);
@@ -51,18 +52,25 @@ export default function HomeScreen({ navigation }) {
 
   if (loading) {
     return (
-      <ActivityIndicator color={"red"} style={{ flex: 1 }} size={"large"} />
+      <ActivityIndicator color={"teal"} style={{ flex: 1 }} size={"large"} />
     );
   }
 
   return (
     <View style={styles.container}>
+
+    <View >
+      <Search />
+    </View>
+
+    <View>
       <FlatList
         data={movieList || []}
         renderItem={({ item }) => <CardTile navigation={navigation} item={item} />}
       />
 
-      <StatusBar style="light" />
+      <StatusBar backgroundColor="teal" style="light" />
+      </View>
     </View>
   );
 }
